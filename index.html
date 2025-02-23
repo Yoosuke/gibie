@@ -110,11 +110,20 @@
             <input type="email" name="email" placeholder="メールアドレスを入力" required>
             <button type="submit">登録する</button>
         </form>
-        <p class="copyright">© 2025 カスタムLP</p>
+        <p class="copyright">© 2025 サンプル</p>
     </div>
 
     <!-- トラッキングコードを読み込む -->
-    <script src="tracking.html"></script>
+    <script>
+        fetch('tracking.html')
+          .then(response => response.text())
+          .then(data => {
+            const script = document.createElement('script');
+            script.innerHTML = data;
+            document.body.appendChild(script);
+          })
+          .catch(error => console.error('Error loading tracking script:', error));
+    </script>
 
     <script>
             document.addEventListener("DOMContentLoaded", async function () {
