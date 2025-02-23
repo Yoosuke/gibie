@@ -41,6 +41,7 @@
             background-repeat: no-repeat;
             width: 100vw;
             height: 100vh;
+            padding-bottom: 20px; /* 縦サイズが足りない場合に余白を確保 */
         }
 
         .bottom-container {
@@ -94,6 +95,7 @@
             }
             .swiper-slide.has-bg {
                 background-size: contain;
+                padding-bottom: 20px; /* モバイルでも余白を確保 */
             }
         }
     </style>
@@ -111,6 +113,17 @@
         </form>
         <p class="copyright">© 2025 サンプル</p>
     </div>
+
+    <div id="tracking-container" style="display:none;"></div>
+
+    <script>
+    fetch('tracking.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('tracking-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading tracking script:', error));
+    </script>    
 
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
